@@ -13,11 +13,12 @@ CREATE TABLE users (
 
 
 CREATE TABLE certificate (
-    id SERIAL PRIMARY KEY,
-    student_name TEXT NOT NULL,
-    course_name TEXT NOT NULL,
-    issue_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    issued_by_user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-    certificate_uid TEXT NOT NULL UNIQUE,
-    transaction_hash TEXT
+    id                SERIAL PRIMARY KEY,
+    student_name      TEXT NOT NULL,
+    course_name       TEXT NOT NULL,
+    issue_date        TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    issued_by_user_id INTEGER NOT NULL,
+    certificate_uid   TEXT NOT NULL UNIQUE,
+    transaction_hash  TEXT,
+    student_email     TEXT NOT NULL DEFAULT ''
 );
