@@ -2,15 +2,6 @@ import { Pool } from 'pg'
 import dns from 'dns'
 import dotenv from 'dotenv'
 dotenv.config()
-// dns.setDefaultResultOrder('ipv4first')
-
-// const pool = new Pool({
-//     connectionString:process.env.DATABASE_URL,
-//     family:4,
-//     ssl:{
-//         rejectUnauthorized: false
-//     }
-// })
 
 const pool = new Pool({
   host: process.env.DB_HOST,
@@ -20,5 +11,15 @@ const pool = new Pool({
   port:5432,
 });
 
+
+// dns.setDefaultResultOrder('ipv4first')
+
+// const pool = new Pool({
+//     connectionString:process.env.DATABASE_URL,
+//     family:4,
+//     ssl:{
+//         rejectUnauthorized: false
+//     }
+// })
 
 export default pool;
