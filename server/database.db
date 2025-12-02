@@ -1,0 +1,23 @@
+// database name is certificate
+// create a users table
+
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    email TEXT NOT NULL UNIQUE,
+    password_hash TEXT NOT NULL,
+    company_name TEXT NOT NULL,
+    name TEXT NOT NULL
+);
+
+
+
+
+CREATE TABLE certificate (
+    id SERIAL PRIMARY KEY,
+    student_name TEXT NOT NULL,
+    course_name TEXT NOT NULL,
+    issue_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    issued_by_user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    certificate_uid TEXT NOT NULL UNIQUE,
+    transaction_hash TEXT
+);
