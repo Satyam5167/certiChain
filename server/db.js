@@ -13,13 +13,12 @@ dotenv.config()
 // })
 
 const pool = new Pool({
-  host: 'localhost',
-  user: 'postgres',
-  password: 'satyam',
-  database: 'certificate',
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  database: process.env.DB_DATABASE,
   port:5432,
 });
 
 
 export default pool;
-
